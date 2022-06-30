@@ -9,17 +9,15 @@ const Weather = ({weatherData}) => {
     setCelsius(originalValue => !originalValue)
   }
 
-
-
   return (
     <div className='main'>
       <h1 className='location'>{weatherData.name}</h1>
       <p className='weather'>{weatherData.weather[0].main}</p>
+      <img className='icon' src={weatherData.weather[0].icon} alt='weather-icon' />
       <div className='temp'>
-        <p>{celsius ? temperature : temperature*1.8+32}</p>
+        <p>{celsius ? temperature : parseInt(temperature*1.8+32)}</p>
         <button className='btn' onClick={handleClick}>{ celsius ? '°C' : '°F' }</button>
       </div>
-      <img className='icon' src={weatherData.weather[0].icon} alt='weather-icon' />
     </div>
   )
 }
